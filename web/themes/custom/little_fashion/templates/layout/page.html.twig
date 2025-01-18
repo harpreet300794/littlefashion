@@ -1,0 +1,40 @@
+{#
+  Template for displaying a single page.
+
+  Includes:
+  - Header, main content, and footer sections.
+  - Displays the primary menu and content region dynamically.
+  - Handles admin-specific content visibility.
+
+  Available variables:
+  - is_admin: Checks if the user is an admin to conditionally render admin content.
+  - page.primary_menu: Renders the primary menu region.
+  - page.content: Renders the main page content.
+#}
+
+<div class="layout-container">
+	<section class="preloader">
+		<div class="spinner">
+			<span class="sk-inner-circle"></span>
+		</div>
+	</section>
+
+	{% include('@little_fashion/layout/header.html.twig') %}
+	
+	{% if is_admin %}
+		<div class='admin-logged-in'>
+	{% else %}
+		<div>
+	{% endif %}
+		<div class="container">{{ page.primary_menu }}</div>
+		<main role="main">
+			<a id="main-content" tabindex="-1"></a>
+			<div class="layout-content">
+				{{ page.content }}
+			</div>
+		</main>
+	</div>
+
+	{% include('@little_fashion/layout/footer.html.twig') %}
+
+</div>

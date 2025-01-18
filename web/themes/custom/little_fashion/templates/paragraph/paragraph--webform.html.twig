@@ -1,0 +1,78 @@
+{#
+  Template for displaying a contact section with a webform and contact information.
+  Variables include paragraph content (fields) and attributes.
+#}
+
+{%
+	set classes = [
+	  'paragraph',
+	  'paragraph--type--' ~ paragraph.bundle|clean_class,
+	  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+	  not paragraph.isPublished() ? 'paragraph--unpublished',
+	  'contact', 'section-padding'
+	]
+  %}
+
+{% block paragraph %}
+	<section{{attributes.addClass(classes)}}>
+		{% block content %}
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-12">
+						<h2 class="mb-4">Let's
+							<span>begin</span>
+						</h2>
+						{# Render the webform field #}
+						{{content.field_webform}}
+					</div>
+					<div class="col-lg-6 col-12 mt-5 ms-auto">
+						<div
+							class="row">
+
+							{# Contact information for 'New Business' #}
+							<div class="col-6 border-end contact-info">
+								<h6 class="mb-3">New Business</h6>
+								<a href="mailto:hello@company.com" class="custom-link">
+									hello@company.com
+									<i class="bi-arrow-right ms-2"></i>
+								</a>
+							</div>
+
+							{# Contact information for 'Main Studio' #}
+							<div class="col-6 contact-info">
+								<h6 class="mb-3">Main Studio</h6>
+								<a href="mailto:studio@company.com" class="custom-link">
+									studio@company.com
+									<i class="bi-arrow-right ms-2"></i>
+								</a>
+							</div>
+
+							{# Office address section #}
+							<div class="col-6 border-top border-end contact-info">
+								<h6 class="mb-3">Our Office</h6>
+								<p class="text-muted">Akershusstranda 20, 0150 Oslo, Norway</p>
+							</div>
+
+							{# Social media links section #}
+							<div class="col-6 border-top contact-info">
+								<h6 class="mb-3">Our Socials</h6>
+								<ul class="social-icon">
+									<li>
+										<a href="#" class="social-icon-link bi-messenger"></a>
+									</li>
+									<li>
+										<a href="#" class="social-icon-link bi-youtube"></a>
+									</li>
+									<li>
+										<a href="#" class="social-icon-link bi-instagram"></a>
+									</li>
+									<li>
+										<a href="#" class="social-icon-link bi-whatsapp"></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				{% endblock %}
+			</section>
+		{% endblock paragraph %}

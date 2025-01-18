@@ -1,0 +1,36 @@
+{#
+  Template for rendering a paragraph entity with a header.
+
+  Available variables:
+  - paragraph: Full paragraph entity (e.g., ID, bundle).
+  - content: Paragraph fields such as title and image.
+  - attributes: HTML attributes, including classes for paragraph type and view mode.
+#}
+
+{%
+	set classes = [
+	  'paragraph',
+	  'paragraph--type--' ~ paragraph.bundle|clean_class,
+	  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+	  not paragraph.isPublished() ? 'paragraph--unpublished',
+	  'site-header',
+	  'section-padding-img',
+	  'site-header-image',
+	]
+  %}
+  
+  {% block paragraph %}
+	  {% block content %}
+		  <header{{attributes.addClass(classes)}}>
+			  <div class="container">
+				  <div class="row">
+					  <div class="col-lg-10 col-12 header-info">
+						  {{content.field_title_formatted}}
+					  </div>
+				  </div>
+			  </div>
+				  {{content.field_image}}
+		  </header>
+	  {% endblock %}
+  {% endblock paragraph %}
+  

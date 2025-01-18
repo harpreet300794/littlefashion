@@ -1,0 +1,68 @@
+{#
+  Template for displaying a paragraph with tabs and dynamic tab content.
+
+  Available variables:
+  - paragraph: Full paragraph entity (e.g., ID, bundle).
+  - content: Paragraph fields such as title, tab items.
+  - attributes: HTML attributes including classes for paragraph type and view mode.
+#}
+
+{%
+    set classes = [
+      'paragraph',
+      'paragraph--type--' ~ paragraph.bundle|clean_class,
+      view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+      not paragraph.isPublished() ? 'paragraph--unpublished',
+      'about',
+      'section-padding'
+    ]
+  %}
+
+  {# Initialize an empty array to store child tab items #}
+  {% set child_tab_items = [] %}
+  
+  {# Loop through field_tab_items, excluding those starting with '#' #}
+  {% for key, item in content.field_tab_items %}
+      {% if key|first != '#' %}
+          {% set child_tab_items = child_tab_items|merge([item]) %}
+      {% endif %}
+  {% endfor %}
+  
+  {% block paragraph %}
+      <section{{attributes.addClass(classes)}}>
+          {% block content %}
+              <div class="container">
+                  <div class="row">
+                      <div class="col-12 text-center">
+                          <h2 class="mb-5">{{content.field_title_formatted|raw}}</h2>
+                      </div>
+                      {% if content.field_tab_items %}
+                          <div class="col-lg-2 col-12 mt-auto mb-auto">
+                              <ul class="nav nav-pills mb-5 mx-auto justify-content-center align-items-center" id="pills-tab" role="tablist">
+                              
+                                  {# For each valid tab item, render a list item with a button for the tab #}
+                                  {% for key, item in child_tab_items %}
+                                      {% set title = item['#paragraph'].field_title.value %}
+                                      {% set tab_id = item['#paragraph'].id.value %}
+                                      
+                                      {# Check if the tab is active, add 'active' class if it is #}
+                                      {% set active = item['#paragraph'].field_active.value == 1 %}
+                                      
+                                      <li class="nav-item" role="presentation">
+                                          <button class="nav-link {% if active %}active{% endif %}" id="tab-{{ tab_id }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ tab_id }}" type="button" role="tab" aria-controls="pills-{{ tab_id }}">{{ title }}</button>
+                                      </li>
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                          
+                          <div class="col-lg-10 col-12">
+                              <div class="tab-content mt-2" id="pills-tabContent">
+                                  {{content.field_tab_items}}  
+                              </div>
+                          </div>
+                      {% endif %}
+                  </div>
+              </div>
+          {% endblock %}
+      </section>
+  {% endblock paragraph %}

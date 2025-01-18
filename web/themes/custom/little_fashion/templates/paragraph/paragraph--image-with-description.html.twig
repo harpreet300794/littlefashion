@@ -1,0 +1,42 @@
+{#
+  Template to render a paragraph with a product section.
+
+  Available variables:
+  - paragraph: Full paragraph entity (e.g., ID, bundle).
+  - content: Paragraph fields such as image, title, and description.
+  - attributes: HTML attributes including classes for paragraph type and view mode.
+#}
+
+{%
+	set classes = [
+	  'paragraph',
+	  'paragraph--type--' ~ paragraph.bundle|clean_class,
+	  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+	  not paragraph.isPublished() ? 'paragraph--unpublished',
+	  'front-product'
+	]
+  %}
+  
+  {% block paragraph %}
+	  <section{{attributes.addClass(classes)}}>
+		  {% block content %}
+			  <div class="container-fluid p-0">
+				  <div class="row align-items-center">
+					  <div class="col-lg-6 col-12">
+						  {{content.field_image}}
+					  </div>
+					  <div class="col-lg-6 col-12">
+						  <div class="px-5 py-5 py-lg-0">
+							  <h2 class="mb-4">{{content.field_title_formatted|raw}}</h2>
+							  {% if content.field_description %}
+								  {{content.field_description}}
+							  {% endif %}
+						  </div>
+					  </div>
+  
+				  </div>
+			  </div>
+		  {% endblock %}
+	  </section>
+  {% endblock paragraph %}
+  

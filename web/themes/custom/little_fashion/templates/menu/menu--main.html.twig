@@ -1,0 +1,37 @@
+{#
+  Template for displaying a menu.
+
+  Renders a nested menu structure using a Twig macro to handle menu items and sub-items. Each item is linked with its title and URL, with special handling for items that have children or are part of the active trail.
+
+  Available variables:
+  - menu_name: The machine name of the menu.
+  - items: List of menu items, each containing title, URL, attributes, and potential child items.
+#}
+
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  https://twig.symfony.com/doc/3.x/tags/macro.html
+#}
+    {{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass('navbar-nav mx-auto') }}>
+    {% else %}
+      <ul>
+    {% endif %}
+    {% for item in items %}
+      <li{{ item.attributes.addClass('nav-item') }}>
+        {{ link(item.title, item.url, { 'class': 'nav-link' }) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

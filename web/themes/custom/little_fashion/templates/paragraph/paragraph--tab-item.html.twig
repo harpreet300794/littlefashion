@@ -1,0 +1,46 @@
+{#
+  Template for displaying a paragraph with media and description, including tab functionality.
+
+  Available variables:
+  - paragraph: Full paragraph entity (e.g., ID, bundle).
+  - content: Paragraph fields such as media, description, and active state.
+  - attributes: HTML attributes including classes for paragraph type and view mode.
+#}
+
+{%
+    set classes = [
+      'paragraph',
+      'paragraph--type--' ~ paragraph.bundle|clean_class,
+      view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+      not paragraph.isPublished() ? 'paragraph--unpublished',
+      'tab-pane', 'fade'
+    ]
+%}
+
+{# Check if the tab is active based on the 'field_active' value #}
+{% set active_tab = content.field_active.0['#markup'] == 'On' %}
+{% if active_tab %}
+    {# If active, add 'show' and 'active' classes to the tab pane #}
+    {% set classes = classes|merge(['show', 'active']) %}
+{% endif %}
+
+{% block paragraph %}
+    <div{{attributes.addClass(classes)}} id="pills-{{paragraph.id()}}" aria-labelledby="pills-{{paragraph.id()}}-tab">
+        {% block content %}
+            <div class="row">
+                <div class="col-lg-7 col-12">
+                    {# Render media field, check if it's a remote video or other type #}
+                    {% if content.field_media.0['#media'].bundle.target_id == 'remote_video' %}
+                    {{content.field_media}}
+                    {% else %}
+                    {{content.field_media}}
+                    {% endif %}
+                </div>
+                <div class="col-lg-5 col-12">
+                    {# Render description field #}
+                    {{content.field_description|raw}}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock paragraph %}
