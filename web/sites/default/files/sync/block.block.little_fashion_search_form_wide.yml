@@ -1,0 +1,23 @@
+uuid: 911f2ef6-6ec6-4d52-b8b9-dd6f46d40f6b
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - little_fashion
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: little_fashion_search_form_wide
+theme: little_fashion
+region: header
+weight: -2
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

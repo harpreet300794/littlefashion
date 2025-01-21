@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: en
+uuid: 8c0f8d19-4b98-4a93-bd64-c47dfa0d74d2
+name: 'Little Fashion '
+mail: ronaksaluja79@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null

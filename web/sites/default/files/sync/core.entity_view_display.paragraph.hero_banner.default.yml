@@ -1,0 +1,38 @@
+uuid: 0535e418-9b25-422b-91f6-cc31ab8d1be6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_banner.field_image
+    - field.field.paragraph.hero_banner.field_title_formatted
+    - paragraphs.paragraphs_type.hero_banner
+  module:
+    - element_class_formatter
+id: paragraph.hero_banner.default
+targetEntityType: paragraph
+bundle: hero_banner
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title_formatted:
+    type: wrapper_class
+    label: hidden
+    settings:
+      class: ''
+      tag: h1
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

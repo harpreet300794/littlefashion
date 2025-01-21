@@ -1,0 +1,22 @@
+uuid: 059ed69a-0cb4-4862-9269-b6776d6514ad
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - little_fashion
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: little_fashion_breadcrumbs
+theme: little_fashion
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

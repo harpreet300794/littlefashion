@@ -1,0 +1,30 @@
+uuid: b19bc989-e80a-4c45-ba05-b4f50eadf03e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - little_fashion
+_core:
+  default_config_hash: KWAiziL39uEzmOJEql_wbUP2RtqGceL3WM2CfxhMelE
+id: little_fashion_main_menu
+theme: little_fashion
+region: header
+weight: -3
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+  attributes:
+    class: 'collapse navbar-collapse'
+    id: navbarNav
+visibility: {  }

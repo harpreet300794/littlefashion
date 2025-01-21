@@ -1,0 +1,34 @@
+uuid: c85bef36-b845-4b0f-ac94-d3b42a67c20a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slider_items
+    - paragraphs.paragraphs_type.banner_slider
+    - paragraphs.paragraphs_type.slider_item
+  module:
+    - entity_reference_revisions
+id: paragraph.banner_slider.field_slider_items
+field_name: field_slider_items
+entity_type: paragraph
+bundle: banner_slider
+label: 'Slider Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      slider_item: slider_item
+    negate: 0
+    target_bundles_drag_drop:
+      banner_slider:
+        weight: 3
+        enabled: false
+      slider_item:
+        weight: 4
+        enabled: true
+field_type: entity_reference_revisions

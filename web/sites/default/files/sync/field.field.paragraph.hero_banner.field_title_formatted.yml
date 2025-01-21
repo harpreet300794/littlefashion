@@ -1,0 +1,30 @@
+uuid: b5ba1683-60eb-4610-a16f-2aaa2641146b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_formatted
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - filter.format.restricted_html
+    - paragraphs.paragraphs_type.hero_banner
+  module:
+    - text
+id: paragraph.hero_banner.field_title_formatted
+field_name: field_title_formatted
+entity_type: paragraph
+bundle: hero_banner
+label: 'Title Formatted'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+    - plain_text
+field_type: text

@@ -1,0 +1,39 @@
+uuid: 4a5f0f13-6b0e-4712-baba-b559ca2df21b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.webform.field_title_formatted
+    - field.field.paragraph.webform.field_webform
+    - paragraphs.paragraphs_type.webform
+  module:
+    - element_class_formatter
+    - webform
+id: paragraph.webform.default
+targetEntityType: paragraph
+bundle: webform
+mode: default
+content:
+  field_title_formatted:
+    type: wrapper_class
+    label: hidden
+    settings:
+      class: mb-4
+      tag: h2
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_webform:
+    type: webform_entity_reference_entity_view
+    label: hidden
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

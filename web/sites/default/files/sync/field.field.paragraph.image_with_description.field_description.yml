@@ -1,0 +1,30 @@
+uuid: 72e018ee-f50b-4bd0-b2b9-abc87057a1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - filter.format.restricted_html
+    - paragraphs.paragraphs_type.image_with_description
+  module:
+    - text
+id: paragraph.image_with_description.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: image_with_description
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+    - plain_text
+field_type: text_long

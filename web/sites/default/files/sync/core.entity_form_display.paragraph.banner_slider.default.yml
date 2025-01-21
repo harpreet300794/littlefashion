@@ -1,0 +1,35 @@
+uuid: 4719c5bb-34d2-4e9a-a29c-edc9b2b05426
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner_slider.field_slider_items
+    - paragraphs.paragraphs_type.banner_slider
+  module:
+    - paragraphs
+id: paragraph.banner_slider.default
+targetEntityType: paragraph
+bundle: banner_slider
+mode: default
+content:
+  field_slider_items:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

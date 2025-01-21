@@ -1,0 +1,30 @@
+uuid: 935fe688-fc8c-44de-a36d-5a33ca4f8316
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_formatted
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - filter.format.restricted_html
+    - paragraphs.paragraphs_type.image_with_description
+  module:
+    - text
+id: paragraph.image_with_description.field_title_formatted
+field_name: field_title_formatted
+entity_type: paragraph
+bundle: image_with_description
+label: 'Title Formatted'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+    - plain_text
+field_type: text

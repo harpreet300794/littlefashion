@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'drupal/recommended-project',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '03876dd0c1c1eb60f7ddbcad4412fe237c9eeaa6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -379,6 +379,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/mailsystem' => array(
+            'pretty_version' => '4.5.0',
+            'version' => '4.5.0.0',
+            'reference' => '8.x-4.5',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/mailsystem',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/paragraphs' => array(
             'pretty_version' => '1.18.0',
             'version' => '1.18.0.0',
@@ -398,9 +407,9 @@
             'dev_requirement' => false,
         ),
         'drupal/recommended-project' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '03876dd0c1c1eb60f7ddbcad4412fe237c9eeaa6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

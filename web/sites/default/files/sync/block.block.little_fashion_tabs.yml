@@ -1,0 +1,20 @@
+uuid: 3add2242-5221-4233-acca-d1a00b4eb859
+langcode: en
+status: false
+dependencies:
+  theme:
+    - little_fashion
+id: little_fashion_tabs
+theme: little_fashion
+region: primary_menu
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }
