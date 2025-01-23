@@ -1193,3 +1193,7 @@
   .navbar span, h2 span, h4 span {
     color: var(--primary-color);
   }
+
+  .user-login-form {
+    margin-top: 100px;
+  }
